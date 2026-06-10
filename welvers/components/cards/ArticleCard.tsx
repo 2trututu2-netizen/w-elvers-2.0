@@ -1,4 +1,4 @@
-import Link from "next/link";
+ import Link from "next/link";
 
 export function ArticleCard({
   article,
@@ -11,7 +11,7 @@ export function ArticleCard({
 
   return (
     <Link
-      href={href}
+      href={href as any}
       className="group flex flex-col rounded-xl border border-border/60 bg-background/60 p-4 text-sm hover:border-border hover:bg-background transition-colors"
     >
       <h2 className="mb-2 font-medium leading-snug">{article.title}</h2>
