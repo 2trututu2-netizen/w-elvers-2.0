@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 export const metadata = {
   title: "WELVERS",
-  description: "AI tools and media directory"
+  description: "AI tools and media directory",
 };
 
 export default function RootLayout({
