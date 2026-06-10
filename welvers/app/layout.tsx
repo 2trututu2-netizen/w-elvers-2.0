@@ -1,4 +1,4 @@
-import "./globals.css";
+ import "./globals.css";
 import type { ReactNode } from "react";
 
 export const metadata = {
@@ -6,7 +6,11 @@ export const metadata = {
   description: "AI tools and media directory"
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en">
       <body>{children}</body>
