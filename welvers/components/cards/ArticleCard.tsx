@@ -1,22 +1,28 @@
- import Link from "next/link";
+import Link from "next/link";
 
 export function ArticleCard({
   article,
   locale
 }: {
   article: { slug: string; title: string; excerpt: string };
-  locale: string;
+  locale?: string;
 }) {
-  const href = article.slug;
+  const href = `/${locale ?? "en"}/blog/${article.slug}`;
 
   return (
     <Link
-      href={`/${locale}/${article.slug}`}
-      className="group flex flex-col rounded-xl border border-border/60 bg-background/60 p-4 text-sm hover:border-border hover:bg-background transition-colors"
+      href={href}
+      className="group flex flex-col rounded-xl border border-white/10 bg-white/5 p-4 text-sm hover:border-white/20 transition"
     >
-      <h2 className="mb-2 font-medium leading-snug">{article.title}</h2>
-      <p className="mb-3 line-clamp-3 text-xs text-muted">{article.excerpt}</p>
-      <span className="mt-auto text-[11px] text-primary group-hover:underline">
+      <h2 className="mb-2 font-medium leading-snug">
+        {article.title}
+      </h2>
+
+      <p className="mb-3 line-clamp-3 text-xs text-white/60">
+        {article.excerpt}
+      </p>
+
+      <span className="mt-auto text-[11px] text-purple-400 group-hover:underline">
         Read article
       </span>
     </Link>
