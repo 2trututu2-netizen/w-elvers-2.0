@@ -1,10 +1,11 @@
-import { ToolsRepository } from "@/lib/repositories/toolsRepository";
+import { getTools } from "@/lib/content/tools";
 import { ToolCard } from "@/components/cards/ToolCard";
 
 export const dynamic = "force-static";
 
-export default async function ToolsPage({ params }: { params: { locale: string } }) {
-  const tools = await ToolsRepository.list(params.locale);
+export default function ToolsPage({ params }: { params: { locale: string } }) {
+  const locale = params.locale || "en";
+  const tools = getTools(locale);
 
   return (
     <div className="container pt-24 md:pt-32 pb-20 md:pb-24">
@@ -16,7 +17,7 @@ export default async function ToolsPage({ params }: { params: { locale: string }
       </header>
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         {tools.map((tool) => (
-          <ToolCard key={tool.slug} tool={tool} />
+          <ToolCard key={tool.slug} tool={tool} locale={locale} />
         ))}
       </div>
     </div>

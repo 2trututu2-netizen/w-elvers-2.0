@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { ToolContent } from "./types";
+import type { ToolContent } from "./types";
 
 const toolsDir = path.join(process.cwd(), "content/tools");
 
@@ -14,13 +14,13 @@ export function getTools(locale: string): ToolContent[] {
       const raw = fs.readFileSync(path.join(toolsDir, file), "utf-8");
       const { data, content } = matter(raw);
       return {
-        slug: `/` + locale + `/tools/` + data.slug,
+        slug: `/${locale}/tools/${data.slug}`,
         title: data.title,
         excerpt: data.excerpt,
         category: data.category,
         pricing: data.pricing,
         affiliateUrl: data.affiliateUrl,
-        content
+        content: content.trim()
       } as ToolContent;
     });
 }
@@ -31,12 +31,12 @@ export function getToolBySlug(locale: string, slug: string): ToolContent | null 
   const raw = fs.readFileSync(file, "utf-8");
   const { data, content } = matter(raw);
   return {
-    slug: `/` + locale + `/tools/` + data.slug,
+    slug: `/${locale}/tools/${data.slug}`,
     title: data.title,
     excerpt: data.excerpt,
     category: data.category,
     pricing: data.pricing,
     affiliateUrl: data.affiliateUrl,
-    content
+    content: content.trim()
   } as ToolContent;
 }

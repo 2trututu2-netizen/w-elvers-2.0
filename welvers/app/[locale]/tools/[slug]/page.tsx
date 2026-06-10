@@ -1,15 +1,16 @@
 import { notFound } from "next/navigation";
-import { ToolsRepository } from "@/lib/repositories/toolsRepository";
+import { getToolBySlug } from "@/lib/content/tools";
 import AffiliateCta from "@/components/marketing/AffiliateCta";
 
 export const dynamic = "force-static";
 
-export default async function ToolDetailPage({
+export default function ToolDetailPage({
   params
 }: {
   params: { locale: string; slug: string };
 }) {
-  const tool = await ToolsRepository.find(params.locale, params.slug);
+  const locale = params.locale || "en";
+  const tool = getToolBySlug(locale, params.slug);
   if (!tool) notFound();
 
   return (
@@ -33,7 +34,7 @@ export default async function ToolDetailPage({
         </div>
       )}
 
-      <article className="prose prose-invert max-w-none text-sm md:text-base">
+      <article className="prose prose-invert max-w-none text-sm md:text-base whitespace-pre-wrap">
         {tool.content}
       </article>
     </div>

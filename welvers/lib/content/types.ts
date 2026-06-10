@@ -7,3 +7,10 @@ export type ToolContent = {
   affiliateUrl?: string;
   content: string;
 };
+
+export type ArticleContent = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+};

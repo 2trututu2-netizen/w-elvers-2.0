@@ -5,8 +5,7 @@ export function Footer() {
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <span>© {new Date().getFullYear()} WELVERS</span>
           <div className="flex flex-wrap gap-3">
-            <a href="/legal/privacy">Privacy</a>
-            <a href="/legal/terms">Terms</a>
+            <span>AI tools &amp; media directory</span>
           </div>
         </div>
       </div>

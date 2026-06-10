@@ -1,9 +1,17 @@
 import Link from "next/link";
 
-export function ToolCard({ tool }: { tool: any }) {
+export function ToolCard({
+  tool,
+  locale
+}: {
+  tool: { slug: string; title: string; excerpt: string; category: string; pricing: string };
+  locale: string;
+}) {
+  const href = tool.slug;
+
   return (
     <Link
-      href={tool.slug}
+      href={href}
       className="group flex flex-col rounded-xl border border-border/60 bg-background/60 p-4 text-sm hover:border-border hover:bg-background transition-colors"
     >
       <h2 className="mb-2 font-medium leading-snug">{tool.title}</h2>

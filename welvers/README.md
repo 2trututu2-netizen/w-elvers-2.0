@@ -1,9 +1,13 @@
 # WELVERS
 
-SEO/media/SaaS платформа для каталогизации и сравнения AI‑инструментов.
+Minimal production-ready Next.js 14 app router project for an AI tools/media directory.
 
-## Локальный запуск
+## Requirements
+
+- Node.js 18+
+- npm
+
+## Install
 
 ```bash
 npm install
-npm run dev

@@ -3,20 +3,20 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export function Header() {
+export function Header({ locale }: { locale: string }) {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="container flex h-14 items-center justify-between">
-        <Link href="/" className="font-display text-sm">
+        <Link href={`/${locale}`} className="font-display text-sm">
           WELVERS
         </Link>
         <nav className="hidden items-center gap-5 text-xs text-muted md:flex">
-          <Link href="/en/tools" className="hover:text-foreground">
+          <Link href={`/${locale}/tools`} className="hover:text-foreground">
             Tools
           </Link>
-          <Link href="/en/blog" className="hover:text-foreground">
+          <Link href={`/${locale}/blog`} className="hover:text-foreground">
             Articles
           </Link>
         </nav>
@@ -34,10 +34,10 @@ export function Header() {
       {open && (
         <div className="border-t border-border/60 bg-background md:hidden">
           <nav className="container flex flex-col gap-2 py-3 text-sm text-muted">
-            <Link href="/en/tools" onClick={() => setOpen(false)}>
+            <Link href={`/${locale}/tools`} onClick={() => setOpen(false)}>
               Tools
             </Link>
-            <Link href="/en/blog" onClick={() => setOpen(false)}>
+            <Link href={`/${locale}/blog`} onClick={() => setOpen(false)}>
               Articles
             </Link>
           </nav>
