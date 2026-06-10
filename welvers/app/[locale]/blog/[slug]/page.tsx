@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getArticleBySlug } from "@/lib/content/articles";
+import { normalizeLocale } from "@/lib/i18n";
 
 export const dynamic = "force-static";
 
@@ -8,7 +9,7 @@ export default function ArticleDetailPage({
 }: {
   params: { locale: string; slug: string };
 }) {
-  const locale = params.locale || "en";
+  const locale = normalizeLocale(params.locale);
   const article = getArticleBySlug(locale, params.slug);
   if (!article) notFound();
 

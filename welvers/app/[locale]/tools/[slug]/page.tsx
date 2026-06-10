@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getToolBySlug } from "@/lib/content/tools";
 import AffiliateCta from "@/components/marketing/AffiliateCta";
+import { normalizeLocale } from "@/lib/i18n";
 
 export const dynamic = "force-static";
 
@@ -9,7 +10,7 @@ export default function ToolDetailPage({
 }: {
   params: { locale: string; slug: string };
 }) {
-  const locale = params.locale || "en";
+  const locale = normalizeLocale(params.locale);
   const tool = getToolBySlug(locale, params.slug);
   if (!tool) notFound();
 

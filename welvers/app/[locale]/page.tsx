@@ -1,7 +1,8 @@
 import Link from "next/link";
+import { normalizeLocale } from "@/lib/i18n";
 
 export default function HomePage({ params }: { params: { locale: string } }) {
-  const locale = params.locale || "en";
+  const locale = normalizeLocale(params.locale);
 
   return (
     <div className="container pt-24 pb-20">

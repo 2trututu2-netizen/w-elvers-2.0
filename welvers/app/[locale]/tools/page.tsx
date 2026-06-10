@@ -1,10 +1,11 @@
 import { getTools } from "@/lib/content/tools";
 import { ToolCard } from "@/components/cards/ToolCard";
+import { normalizeLocale } from "@/lib/i18n";
 
 export const dynamic = "force-static";
 
 export default function ToolsPage({ params }: { params: { locale: string } }) {
-  const locale = params.locale || "en";
+  const locale = normalizeLocale(params.locale);
   const tools = getTools(locale);
 
   return (

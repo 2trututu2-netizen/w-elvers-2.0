@@ -1,10 +1,11 @@
 import { getArticles } from "@/lib/content/articles";
 import { ArticleCard } from "@/components/cards/ArticleCard";
+import { normalizeLocale } from "@/lib/i18n";
 
 export const dynamic = "force-static";
 
 export default function BlogPage({ params }: { params: { locale: string } }) {
-  const locale = params.locale || "en";
+  const locale = normalizeLocale(params.locale);
   const articles = getArticles(locale);
 
   return (
