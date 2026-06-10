@@ -18,12 +18,11 @@ export default function LocaleLayout({
   const locale = normalizeLocale(params.locale);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="flex min-h-screen flex-col">
-        <Header locale={locale} />
-        <main className="flex-1 pt-16">{children}</main>
-        <Footer />
-      </div>
+  <div className="min-h-screen bg-[#050509] text-white">
+    <div className="flex min-h-screen flex-col">
+      <Header locale={locale} />
+      <main className="flex-1 pt-16">{children}</main>
+      <Footer />
     </div>
-  );
-}
+  </div>
+);
